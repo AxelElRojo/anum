@@ -7,4 +7,4 @@ $stmt = $db_con->prepare('UPDATE animal SET nombre=?, edad=?, foto=?, idEspecie=
 $stmt->bind_param('sisii', $data['nombre'], $data['edad'], $dir_pic, $data['especie'], $data['id']);
 $stmt->execute();
 header('Content-Type: application/json');
-echo json_encode(array("success" => $stmt->affected_rows == 1));
+echo json_encode(array("exito" => $stmt->affected_rows == 1));

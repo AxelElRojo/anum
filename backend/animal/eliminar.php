@@ -6,4 +6,4 @@ $stmt = $db_con->prepare('UPDATE animal SET eliminado=1 WHERE id=?');
 $stmt->bind_param('i', $data['id']);
 $stmt->execute();
 header('Content-Type: application/json');
-echo json_encode(array("success" => $stmt->affected_rows));
+echo json_encode(array("exito" => $stmt->affected_rows));

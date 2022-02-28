@@ -8,4 +8,4 @@ $data = [];
 while($row = $res->fetch_assoc())
 	array_push($data, $row);
 header('Content-Type: application/json');
-echo json_encode(array("success" => $res->num_rows > 0, "data" => $data));
+echo json_encode(array("exito" => $res->num_rows > 0, "data" => $data));

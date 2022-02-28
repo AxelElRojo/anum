@@ -8,6 +8,6 @@ $stmt->bind_param('sisi', $data['nombre'], $data['edad'], $dir_pic, $data['espec
 $stmt->execute();
 header('Content-Type: application/json');
 if($stmt->affected_rows == 1)
-	echo json_encode(array("success" => true, "id" => $stmt->insert_id));
+	echo json_encode(array("exito" => true, "id" => $stmt->insert_id));
 else
-	echo json_encode(array("success" => false));
+	echo json_encode(array("exito" => false));
