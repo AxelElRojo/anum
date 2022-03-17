@@ -40,7 +40,7 @@ CREATE TABLE `anum`.`gasto`(
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`concepto` VARCHAR(30) NOT NULL,
 	`fecha` DATE NOT NULL,
-	`cantidad` INT NOT NULL,
+	`cantidad` DECIMAL(10, 2) NOT NULL,
 	`eliminado` BOOLEAN DEFAULT FALSE,
 	PRIMARY KEY(`id`)
 ) ENGINE = InnoDB;
@@ -49,7 +49,7 @@ CREATE TABLE `anum`.`vacunacion`(
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`tipo` VARCHAR(30) NOT NULL,
 	`marca` VARCHAR(30) NOT NULL,
-	`fecha` VARCHAR(30) NOT NULL,
+	`fecha` DATE NOT NULL,
 	`idAnimal` INT NOT NULL REFERENCES animal(id),
 	`idGasto` INT NOT NULL REFERENCES gasto(id),
 	`eliminado` BOOLEAN DEFAULT FALSE,
@@ -87,7 +87,7 @@ CREATE TABLE `anum`.`donador`(
 CREATE TABLE `anum`.`donaciones`(
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`fecha` DATE NOT NULL,
-	`cantidad` VARCHAR(255) NOT NULL,
+	`cantidad` DECIMAL(10, 2) NOT NULL,
 	`idDonador` INT NOT NULL REFERENCES donador(id),
 	`eliminado` BOOLEAN DEFAULT FALSE,
 	PRIMARY KEY(`id`)
