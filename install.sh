@@ -1,5 +1,5 @@
 #!/bin/sh
-read -rp "Web server root: " root
+read -rp "Web server root (no trailing slash): " root
 read -rp "Web domain: " domain
 cp -r ./backend "$root/api.$domain"
 cp -r ./frontend "$root/sys.$domain"
