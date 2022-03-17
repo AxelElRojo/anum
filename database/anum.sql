@@ -103,3 +103,12 @@ CREATE TABLE `anum`.`tratamiento`(
 	`eliminado` BOOLEAN DEFAULT FALSE,
 	PRIMARY KEY(`id`)
 ) ENGINE = InnoDB;
+
+CREATE TABLE `anum`.`enfermedad`(
+	`id` INT NOT NULL AUTO_INCREMENT,
+	`nombre` VARCHAR(30) NOT NULL,
+	`tratoEspecial` TEXT NOT NULL,
+	`descripcion` TEXT NOT NULL,
+	`idAnimal` INT NOT NULL REFERENCES animal(id)
+	PRIMARY KEY(`id`)
+) ENGINE = InnoDB;
