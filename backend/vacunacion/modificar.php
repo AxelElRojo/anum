@@ -1,6 +1,6 @@
 <?php
-require_once('../includes/db.inc.php');
-require_once('../includes/util.inc.php');
+require_once('../.includes/db.inc.php');
+require_once('../.includes/util.inc.php');
 $data = escapeArray($_POST, $db_con);
 $stmt = $db_con->prepare('UPDATE vacunacion SET tipo=?, marca=?, fecha=?, idAnimal=?, idGasto=? WHERE id=?');
 $stmt->bind_param('sssiii', $data['tipo'], $data['marca'], $data['fecha'], $data['idAnimal'], $data['idGasto'], $data['id']);

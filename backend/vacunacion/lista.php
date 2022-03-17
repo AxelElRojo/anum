@@ -1,6 +1,6 @@
 <?php
-require_once('../includes/db.inc.php');
-require_once('../includes/util.inc.php');
+require_once('../.includes/db.inc.php');
+require_once('../.includes/util.inc.php');
 $stmt = $db_con->prepare('SELECT id, idAnimal, marca, descripcion FROM vacunacion WHERE eliminado=0');
 $stmt->execute();
 $res = $stmt->get_result();
