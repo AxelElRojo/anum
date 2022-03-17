@@ -17,7 +17,7 @@ CREATE TABLE `anum`.`animal`(
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`nombre` VARCHAR(20) NOT NULL,
 	`edad` INT(11) NOT NULL,
-	`foto` INT NOT NULL ,
+	`foto` VARCHAR(255) NOT NULL ,
 	`idEspecie` INT NOT NULL REFERENCES especie(id),
 	`idContacto` INT NOT NULL REFERENCES contacto(id),
 	`eliminado` BOOLEAN DEFAULT FALSE,
@@ -39,7 +39,7 @@ CREATE TABLE `anum`.`empleado`(
 CREATE TABLE `anum`.`gasto`(
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`concepto` VARCHAR(30) NOT NULL,
-	`fecha` VARCHAR(30) NOT NULL,
+	`fecha` DATE NOT NULL,
 	`cantidad` INT NOT NULL,
 	`eliminado` BOOLEAN DEFAULT FALSE,
 	PRIMARY KEY(`id`)
@@ -86,7 +86,7 @@ CREATE TABLE `anum`.`donador`(
 
 CREATE TABLE `anum`.`donaciones`(
 	`id` INT NOT NULL AUTO_INCREMENT,
-	`fecha` VARCHAR(30) NOT NULL,
+	`fecha` DATE NOT NULL,
 	`cantidad` VARCHAR(255) NOT NULL,
 	`idDonador` INT NOT NULL REFERENCES donador(id),
 	`eliminado` BOOLEAN DEFAULT FALSE,
