@@ -1,6 +1,6 @@
 <?php
-require_once('../includes/db.inc.php');
-require_once('../includes/util.inc.php');
+require_once('../.includes/db.inc.php');
+require_once('../.includes/util.inc.php');
 $data = escapeArray($_POST, $db_con);
 $stmt = $db_con->prepare('INSERT INTO tratamiento(duracion, frecuencia, descripcion, idAnimal) VALUES(?,?,?,?)');
 $stmt->bind_param('sssi', $data['duracion'], $data['frecuencia'], $data['descripcion'], $data['idAnimal']);
