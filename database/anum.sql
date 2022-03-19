@@ -109,6 +109,7 @@ CREATE TABLE `anum`.`enfermedad`(
 	`nombre` VARCHAR(30) NOT NULL,
 	`tratoEspecial` TEXT NOT NULL,
 	`descripcion` TEXT NOT NULL,
+	`curada` BOOLEAN DEFAULT FALSE,
 	`idAnimal` INT NOT NULL REFERENCES animal(id),
 	PRIMARY KEY(`id`)
 ) ENGINE = InnoDB;
