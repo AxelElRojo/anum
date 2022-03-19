@@ -19,7 +19,7 @@ CREATE TABLE `anum`.`animal`(
 	`edad` INT(11) NOT NULL,
 	`foto` VARCHAR(255) NOT NULL ,
 	`idEspecie` INT NOT NULL REFERENCES especie(id),
-	`idContacto` INT NOT NULL REFERENCES contacto(id),
+	`idContacto` INT, -- NOT NULL REFERENCES contacto(id),
 	`eliminado` BOOLEAN DEFAULT FALSE,
 	PRIMARY KEY(`id`)
 ) ENGINE = InnoDB;
@@ -51,7 +51,7 @@ CREATE TABLE `anum`.`vacunacion`(
 	`marca` VARCHAR(30) NOT NULL,
 	`fecha` DATE NOT NULL,
 	`idAnimal` INT NOT NULL REFERENCES animal(id),
-	`idGasto` INT NOT NULL REFERENCES gasto(id),
+	`idGasto` INT, -- NOT NULL REFERENCES gasto(id),
 	`eliminado` BOOLEAN DEFAULT FALSE,
 	PRIMARY KEY(`id`)
 ) ENGINE = InnoDB;
