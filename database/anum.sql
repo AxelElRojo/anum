@@ -109,6 +109,6 @@ CREATE TABLE `anum`.`enfermedad`(
 	`nombre` VARCHAR(30) NOT NULL,
 	`tratoEspecial` TEXT NOT NULL,
 	`descripcion` TEXT NOT NULL,
-	`idAnimal` INT NOT NULL REFERENCES animal(id)
+	`idAnimal` INT NOT NULL REFERENCES animal(id),
 	PRIMARY KEY(`id`)
 ) ENGINE = InnoDB;
