@@ -1,6 +1,7 @@
 CREATE TABLE `anum`.`especie`(
 	`id` INT NOT NULL AUTO_INCREMENT,
-	`nombre` INT NOT NULL,
+	`nombre` VARCHAR(30) NOT NULL,
+	`eliminado` BOOLEAN DEFAULT FALSE,
 	PRIMARY KEY(`id`)
 ) ENGINE = InnoDB;
 
