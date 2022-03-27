@@ -73,6 +73,7 @@
 		<table id="tabla" class="table table-striped table-dark table-bordered table-hover table-sm " hidden>
 			<tr>
 				<th scope="col" >Nombre</th>
+				<th scope="col">Enfermedad</th>
 			</tr>
 		</table>
 	</div>
@@ -110,8 +111,10 @@
 					{
 						for (var i = 0; i < response.data.length; i++) 
 						{
+							var animal = $("<td></td>").text($("#select > option:selected").text());
 							var nombre = $("<td></td>").text(response.data[i].nombre);
 							var row = $("<tr></tr>");
+							row.append(animal);
 							row.append(nombre);
 							$("#tabla").append(row);
 						}
