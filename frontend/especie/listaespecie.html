@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Lista de Especies</title>
+
+	<!-- BOOSTRAP -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+	<!-- JQUERY -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+		<ul class="navbar-nav">
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+					Animal
+				</a>
+				<div class="dropdown-menu">
+					<a class="dropdown-item" href="../animal/altaanimal.html">Alta</a>
+					<a class="dropdown-item" href="../animal/listaranimal.html">Lista</a>
+					<a class="dropdown-item" href="../animal/modificaranimal.html">Modificar</a>
+				</div>
+			</li>	!--animal-->
+
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+					Enfermedad
+				</a>
+				<div class="dropdown-menu">
+					<a class="dropdown-item" href="../enfermedad/AltaEnfermedad.html">Alta</a>
+					<a class="dropdown-item" href="../enfermedad/listarenfermedad.html">Lista </a>
+					<a class="dropdown-item" href="../enfermedad/modificarenfermedad.html">Modificar</a>
+				</div>
+			</li>	!--enfermedad-->
+
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+					Especie
+				</a>
+				<div class="dropdown-menu">
+					<a class="dropdown-item" href="AltaEspecie.html">Alta</a>
+					<a class="dropdown-item" href="listaespecie.html">Lista </a>
+					<a class="dropdown-item" href="modificarespecie.html">Modificar</a>
+				</div>
+			</li>	!--especie-->
+
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+					Tratamiento
+				</a>
+				<div class="dropdown-menu">
+					<a class="dropdown-item" href="../tratamiento/AltaTratamiento.html">Alta</a>
+					<a class="dropdown-item" href="../tratamiento/listatratamiento.html">Lista </a>
+					<a class="dropdown-item" href="../tratamiento/modificartratamiento.html">Modificar</a>
+				</div>
+			</li>	!--tratamiento-->
+
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+					Vacunación
+				</a>
+				<div class="dropdown-menu">
+					<a class="dropdown-item" href="../vacunacion/Altavacunacion.html">Alta</a>
+					<a class="dropdown-item" href="../vacunacion/listavacunacion.html">Lista </a>
+					<a class="dropdown-item" href="../vacunacion/modificartratamiento.html">Modificar</a>
+				</div>
+			</li>	!--vacunacion-->
+		</ul>
+	</nav>	<!--navegacion-->
+
+	
+	<div class="container">
+		<h1 class="text-center">Listado de especies</h1>
+		<table id="tabla" class="table table-striped table-dark table-bordered table-hover table-sm">
+			<tr>
+				<th scope="col" >Nombre</th>
+			</tr>
+		</table>
+			
+	<!-- JS -->
+	<script type="text/javascript">
+		$.ajax({
+			url: "http://localhost/anum/backend/especie/listar.php",
+			method: "POST",
+
+			success : ( response ) => {
+				var tabla = $('#tabla');
+				for (var i = 0; i < response.data.length; i++) 
+				{
+					var nombre = $("<td></td>").val(response.data[i].nombre).text(response.data[i].nombre);
+					
+					var row = $("<tr></tr>");
+					row.append(nombre);
+					
+					$("#tabla").append(row);
+				}
+			},
+			error : ( request, status, error ) => {
+				console.log(request.responseText, status, error);
+			}
+
+		});
+	</script>
+
+	<!-- jQuery library -->
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+
+	<!-- Popper JS -->
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+
+
+
+</body>
+</html>
