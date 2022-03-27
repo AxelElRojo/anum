@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>lista de animales</title>
+	<title>Modificar animales</title>
 
 	<!-- BOOSTRAP -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -18,56 +18,56 @@
 		<ul class="navbar-nav">
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-					animal
+					Animal
 				</a>
 				<div class="dropdown-menu">
-					<a class="dropdown-item" href="altaanimal.html">alta</a>
+					<a class="dropdown-item" href="altaanimal.html">Alta</a>
 					<a class="dropdown-item" href="listaranimal.html">Lista</a>
-					<a class="dropdown-item" href="modificaranimal.html">modiicar</a>
+					<a class="dropdown-item" href="modificaranimal.html">Modificar</a>
 				</div>
 			</li>	!--animal-->
 
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-					enfermedad
+					Enfermedad
 				</a>
 				<div class="dropdown-menu">
-					<a class="dropdown-item" href="../enfermedad/AltaEnfermedad.html">alta</a>
+					<a class="dropdown-item" href="../enfermedad/AltaEnfermedad.html">Alta</a>
 					<a class="dropdown-item" href="../enfermedad/listarenfermedad.html">Lista </a>
-					<a class="dropdown-item" href="../enfermedad/modificarenfermedad.html">modiicar</a>
+					<a class="dropdown-item" href="../enfermedad/modificarenfermedad.html">Modificar</a>
 				</div>
 			</li>	!--enfermedad-->
 
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-					especie
+					Especie
 				</a>
 				<div class="dropdown-menu">
-					<a class="dropdown-item" href="../especie/AltaEspecie.html">alta</a>
+					<a class="dropdown-item" href="../especie/AltaEspecie.html">Alta</a>
 					<a class="dropdown-item" href="../especie/listaespecie.html">Lista </a>
-					<a class="dropdown-item" href="../especie/modificarespecie.html">modiicar</a>
+					<a class="dropdown-item" href="../especie/modificarespecie.html">Modificar</a>
 				</div>
 			</li>	!--especie-->
 
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-					tratamiento
+					Tratamiento
 				</a>
 				<div class="dropdown-menu">
-					<a class="dropdown-item" href="../tratamiento/AltaTratamiento.html">alta</a>
+					<a class="dropdown-item" href="../tratamiento/AltaTratamiento.html">Alta</a>
 					<a class="dropdown-item" href="../tratamiento/listatratamiento.html">Lista </a>
-					<a class="dropdown-item" href="../tratamiento/modificartratamiento.html">modiicar</a>
+					<a class="dropdown-item" href="../tratamiento/modificartratamiento.html">Modificar</a>
 				</div>
 			</li>	!--tratamiento-->
 
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-					vacunacion
+					Vacunación
 				</a>
 				<div class="dropdown-menu">
-					<a class="dropdown-item" href="../vacunacion/Altavacunacion.html">alta</a>
+					<a class="dropdown-item" href="../vacunacion/Altavacunacion.html">Alta</a>
 					<a class="dropdown-item" href="../vacunacion/listavacunacion.html">Lista </a>
-					<a class="dropdown-item" href="../vacunacion/modificartratamiento.html">modiicar</a>
+					<a class="dropdown-item" href="../vacunacion/modificartratamiento.html">Modificar</a>
 				</div>
 			</li>	!--vacunacion-->
 		</ul>
@@ -85,24 +85,24 @@
 
 
 	<div class="container">
-		<h1 class="text-center">modificacion de animales</h1>
+		<h1 class="text-center">Modificación de animales</h1>
 		<select name="" id="select" onchange="cargaAnimal()">
-			<option value="" selected disabled>selecciona un animal</option>
+			<option value="" selected disabled>Selecciona un animal</option>
 		</select>	<!--selecciona animal-->
 
 		<form action="#" id="formulario" method="POST" onsubmit="event.preventDefault();">
 			<div class="form-group mb-3">
-				<label for="nombre">nomobre del animal:</label>
+				<label for="nombre">Nombre del animal:</label>
 				<input type="text" class="form-control" placeholder="ingresa el nombre" id="nombre">
 			</div>
 
 			<div class="form-group mb-3">
-				<label for="edad">edad:</label>
+				<label for="edad">Edad:</label>
 				<input type="number" min="0" class="form-control" id="edad">
 			</div>
 
 			<div class="form-group mb-3">
-				<label for="especie">elige la especie</label>
+				<label for="especie">Elige la especie</label>
 				<select class="form-control" id="especie">
 					
 
@@ -120,8 +120,8 @@
 				<input type="file" id="foto" oninput="encodeImgtoBase64()">
 			</div> -->
 
-			<button onclick="modificarAnimal()"  class="btn btn-outline-primary">modificar</button>
-			<button onclick="eliminarAnimal()"  class="btn btn-danger">eliminar</button>
+			<button onclick="modificarAnimal()"  class="btn btn-outline-primary">Modificar</button>
+			<button onclick="eliminarAnimal()"  class="btn btn-danger">Eliminar</button>
 		</form>		<!--formulario-->
 
 
