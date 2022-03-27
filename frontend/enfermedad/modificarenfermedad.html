@@ -4,13 +4,9 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Lista de animales</title>
-	<!-- BOOSTRAP -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-	<!-- JQUERY -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<!-- JS -->
 	<script type="text/javascript" src="../js/app.js"></script>
-	<!-- Popper JS -->
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 </head>
 <body>
@@ -25,8 +21,7 @@
 					<a class="dropdown-item" href="../animal/listaranimal.html">Lista</a>
 					<a class="dropdown-item" href="../animal/modificaranimal.html">Modificar</a>
 				</div>
-			</li>	!--animal-->
-
+			</li>	
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
 					Enfermedad
@@ -36,8 +31,7 @@
 					<a class="dropdown-item" href="listarenfermedad.html">Lista </a>
 					<a class="dropdown-item" href="modificarenfermedad.html">Modificar</a>
 				</div>
-			</li>	!--enfermedad-->
-
+			</li>	
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
 					Especie
@@ -47,8 +41,7 @@
 					<a class="dropdown-item" href="../especie/listaespecie.html">Lista </a>
 					<a class="dropdown-item" href="../especie/modificarespecie.html">Modificar</a>
 				</div>
-			</li>	!--especie-->
-
+			</li>	
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
 					Tratamiento
@@ -58,8 +51,7 @@
 					<a class="dropdown-item" href="../tratamiento/listatratamiento.html">Lista </a>
 					<a class="dropdown-item" href="../tratamiento/modificartratamiento.html">Modificar</a>
 				</div>
-			</li>	!--tratamiento-->
-
+			</li>	
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
 					Vacunación
@@ -69,47 +61,38 @@
 					<a class="dropdown-item" href="../vacunacion/listavacunacion.html">Lista </a>
 					<a class="dropdown-item" href="../vacunacion/modificartratamiento.html">Modificar</a>
 				</div>
-			</li>	!--vacunacion-->
+			</li>	
 		</ul>
-	</nav>	<!--navegacion-->
-	
+	</nav>	
 	<div class="container">
 		<h1 class="text-center">Modificación de enfermedad</h1>
 		<select name="" id="select" onchange="cargaEnfermedad()">
 			<option value="" selected disabled>Selecciona una enfermedad</option>
-		</select>	<!--selecciona enfermedad-->
-
-
+		</select>	
 		<form action="#" id="formulario" method="POST" onsubmit="event.preventDefault();">
 			<div class="form-group mb-3">
 				<label for="nombre">Nombre de la enfermdad:</label>
 				<input type="text" class="form-control" placeholder="Ingresa el nombre" id="nombre">
 			</div>
-
 			<div class="form-group mb-3">
 				<label for="descripcion">Descripcion:</label>
 				<input type="text" min="0" class="form-control" id="descripcion">
 			</div>
-
 			<div class="form-group mb-3">
 				<label for="tratoEspecial">Trato especial:</label>
 				<input type="text" class="form-control" id="tratoEspecial">
 			</div>
-
 			<button onclick="modificarEnfermedad()"  class="btn btn-outline-primary">Modificar</button>
 			<button onclick="eliminarEnfermedad()"  class="btn btn-danger">Eliminar</button>
-		</form>		<!--formulario-->
-
+		</form>		
 	</div>
 
-	<!-- JS -->		
 	<script type="text/javascript">
 		$('#formulario > *').hide(); 
 		const tablaOriginal = $("#tabla").clone();
 		$.ajax({
 			url: "http://localhost/anum/backend/enfermedad/listar.php",
 			method: "POST",
-			
 			success : ( response ) => {
 				for (var i = 0; i < response.data.length; i++) 
 				{
@@ -121,7 +104,6 @@
 				console.log(request.responseText, status, error);
 			}
 		});
-
 		function cargaEnfermedad()
 		{
 			$.ajax({
@@ -130,22 +112,18 @@
 				data: {
 					id: $('#select').val()
 				},
-
 				success : ( response ) => {
 					console.log(response.data[0]);
 					$('#nombre').val(response.data[0].nombre);
 					$('#tratoEspecial').val(response.data[0].tratoEspecial);
 					$('#descripcion').val(response.data[0].descripcion);
-
 					$('#formulario > *').show();
-
 				},
 				error : ( request, status, error ) => {
 					console.log(request.responseText, status, error);
 				}
 			});
 		}
-
 		function modificarEnfermedad()
 		{
 			$.ajax({
@@ -157,7 +135,6 @@
 					tratoEspecial: $('#tratoEspecial').val(),
 					descripcion: $('#descripcion').val()
 				},
-
 				success : ( response ) => {
 					console.log(response);
 					if(response.exito )
@@ -168,14 +145,12 @@
 					{
 						alert('nel pastel');
 					}
-
 				},
 				error : ( request, status, error ) => {
 					console.log(request.responseText, status, error);
 				}
 			});
 		}
-
 		function eliminarEnfermedad()
 		{
 			if(confirm("seguro"))
@@ -186,7 +161,6 @@
 					data: {
 						id: $('#select').val(),
 					},
-
 					success : ( response ) => {
 						if(response.exito )
 						{
@@ -199,7 +173,6 @@
 					}
 				});
 			}
-
 		}
 	</script>
 </body>
