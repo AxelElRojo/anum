@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Alta de Especie</title>
+
+	<!-- BOOSTRAP -->	
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+	<!-- JQUERY -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+<body>
+
+
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+		<ul class="navbar-nav">
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+					animal
+				</a>
+				<div class="dropdown-menu">
+					<a class="dropdown-item" href="../animal/altaanimal.html">alta</a>
+					<a class="dropdown-item" href="../animal/listaranimal.html">Lista</a>
+					<a class="dropdown-item" href="../animal/modificaranimal.html">modiicar</a>
+				</div>
+			</li>	!--animal-->
+
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+					enfermedad
+				</a>
+				<div class="dropdown-menu">
+					<a class="dropdown-item" href="../enfermedad/AltaEnfermedad.html">alta</a>
+					<a class="dropdown-item" href="../enfermedad/listarenfermedad.html">Lista </a>
+					<a class="dropdown-item" href="../enfermedad/modificarenfermedad.html">modiicar</a>
+				</div>
+			</li>	!--enfermedad-->
+
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+					especie
+				</a>
+				<div class="dropdown-menu">
+					<a class="dropdown-item" href="AltaEspecie.html">alta</a>
+					<a class="dropdown-item" href="listaespecie.html">Lista </a>
+					<a class="dropdown-item" href="modificarespecie.html">modiicar</a>
+				</div>
+			</li>	!--especie-->
+
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+					tratamiento
+				</a>
+				<div class="dropdown-menu">
+					<a class="dropdown-item" href="../tratamiento/AltaTratamiento.html">alta</a>
+					<a class="dropdown-item" href="../tratamiento/listatratamiento.html">Lista </a>
+					<a class="dropdown-item" href="../tratamiento/modificartratamiento.html">modiicar</a>
+				</div>
+			</li>	!--tratamiento-->
+
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+					vacunacion
+				</a>
+				<div class="dropdown-menu">
+					<a class="dropdown-item" href="../vacunacion/Altavacunacion.html">alta</a>
+					<a class="dropdown-item" href="../vacunacion/listavacunacion.html">Lista </a>
+					<a class="dropdown-item" href="../vacunacion/modificartratamiento.html">modiicar</a>
+				</div>
+			</li>	!--vacunacion-->
+		</ul>
+	</nav>	<!--navegacion-->
+
+
+	<div class="container">
+		<h1 class="text-center">Alta de Especie</h1>
+		<form action="#" id="formulario" method="POST" onsubmit="event.preventDefault(); altaEspecie()">
+			<div class="form-group mb-3">
+				<label for="especie">Nombre de la especie:</label>
+				<input type="text" class="form-control" placeholder="Ingresa el nombre de la especie" id="especie">
+			</div>
+			
+			<button type="submit" class="btn btn-outline-primary">registrar</button>
+		</form>    <!--formulario-->
+	</div>
+
+
+	<!-- JS -->
+	<script type="text/javascript" src="../js/app.js"></script>
+
+	<!-- jQuery library -->
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+
+	<!-- Popper JS -->
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+</html>
