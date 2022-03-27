@@ -100,7 +100,7 @@ CREATE TABLE `anum`.`tratamiento`(
 	`frecuencia` VARCHAR(30) NOT NULL,
 	`descripcion` VARCHAR(30) NOT NULL,
 	`idAnimal` INT NOT NULL REFERENCES animal(id),
-	`idGasto` INT, --NOT NULL REFERENCES gasto(id),
+	`idGasto` INT, -- NOT NULL REFERENCES gasto(id),
 	`eliminado` BOOLEAN DEFAULT FALSE,
 	PRIMARY KEY(`id`)
 ) ENGINE = InnoDB;
