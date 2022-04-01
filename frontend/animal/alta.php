@@ -11,60 +11,9 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-		<ul class="navbar-nav">
-			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-					Animal
-				</a>
-				<div class="dropdown-menu">
-					<a class="dropdown-item" href="../animal/altaanimal.html">Alta</a>
-					<a class="dropdown-item" href="../animal/listaranimal.html">Lista</a>
-					<a class="dropdown-item" href="../animal/modificaranimal.html">Modificar</a>
-				</div>
-			</li>	
-			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-					Enfermedad
-				</a>
-				<div class="dropdown-menu">
-					<a class="dropdown-item" href="AltaEnfermedad.html">Alta</a>
-					<a class="dropdown-item" href="listarenfermedad.html">Lista </a>
-					<a class="dropdown-item" href="modificarenfermedad.html">Modificar</a>
-				</div>
-			</li>	
-			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-					Especie
-				</a>
-				<div class="dropdown-menu">
-					<a class="dropdown-item" href="../especie/AltaEspecie.html">Alta</a>
-					<a class="dropdown-item" href="../especie/listaespecie.html">Lista </a>
-					<a class="dropdown-item" href="../especie/modificarespecie.html">Modificar</a>
-				</div>
-			</li>	
-			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-					Tratamiento
-				</a>
-				<div class="dropdown-menu">
-					<a class="dropdown-item" href="../tratamiento/AltaTratamiento.html">Alta</a>
-					<a class="dropdown-item" href="../tratamiento/listatratamiento.html">Lista </a>
-					<a class="dropdown-item" href="../tratamiento/modificartratamiento.html">Modificar</a>
-				</div>
-			</li>	
-			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-					Vacunación
-				</a>
-				<div class="dropdown-menu">
-					<a class="dropdown-item" href="../vacunacion/Altavacunacion.html">Alta</a>
-					<a class="dropdown-item" href="../vacunacion/listavacunacion.html">Lista </a>
-					<a class="dropdown-item" href="../vacunacion/modificarvacunacion.html">Modificar</a>
-				</div>
-			</li>	
-		</ul>
-	</nav>	
+	<?php
+		echo file_get_contents('../includes/header.html');
+	?>
 	<div class="container">
 		<h1 class="text-center">Alta de animales</h1>
 		<form action="#" id="formulario" method="POST" onsubmit="event.preventDefault(); altaAnimal()">
