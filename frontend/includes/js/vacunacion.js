@@ -33,6 +33,7 @@ vacunacion.listar = (idElemento, idAnimal, tabla = true) => {
 			},
 			success : (response) => {
 				var i;
+				console.log(response);
 				if(tabla){
 					$(`#${idElemento}`).replaceWith(tablaOriginal.clone());
 					if(response.data.length == 0)
@@ -41,9 +42,11 @@ vacunacion.listar = (idElemento, idAnimal, tabla = true) => {
 						for(i=0; i < response.data.length; i++){
 							var tipo = $("<td></td>").text(response.data[i].tipo);
 							var marca = $("<td></td>").text(response.data[i].marca);
+							var fecha = $("<td></td>").text(response.data[i].fecha);
 							var row = $("<tr></tr>");
 							row.append(tipo);
 							row.append(marca);
+							row.append(fecha);
 							$(`#${idElemento}`).append(row);
 						}
 						$(`#${idElemento}`).attr('hidden', false);

@@ -18,13 +18,14 @@
 	?>
 	<div class="container">
 		<h1 class="text-center">Listado de vacunación</h1>
-		<select name="" id="select" class="form-control" onchange="vacunacion.listar('tabla', this.value, true)">
+		<select name="" id="select" class="form-control" onchange="vacunacion.listar('tabla', this.value)">
 			<option value="" selected disabled>Selecciona un animal</option>
 		</select>
 		<table id="tabla" class="table table-striped table-dark table-bordered table-hover table-sm" hidden>
 			<tr>
 				<th scope="col">Tipo</th>
 				<th scope="col">Marca</th>
+				<th scope="col">Fecha</th>
 			</tr>
 		</table>
 	<script type="text/javascript">
