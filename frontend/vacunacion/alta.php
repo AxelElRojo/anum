@@ -12,7 +12,7 @@
 	<script type="text/javascript" src="../includes/js/animal.js"></script>
 	<script type="text/javascript" src="../includes/js/vacunacion.js"></script>
 	<script type="text/javascript">
-		animal.listar('animal', false);
+		animal.listar({}, 'animal', false);
 	</script>
 </head>
 <body>
