@@ -16,13 +16,13 @@
 	?>
 	<div class="container">
 		<h1 class="text-center">Alta de especie</h1>
-		<form action="#" id="formulario" method="POST" onsubmit="event.preventDefault(); altaEspecie()">
+		<form action="#" id="formulario" method="POST" onsubmit="event.preventDefault(); especie.alta($('#especie').val())">
 			<div class="form-group mb-3">
 				<label for="especie">Nombre de la especie:</label>
 				<input type="text" class="form-control" placeholder="Ingresa el nombre de la especie" id="especie">
 			</div>
 			<button type="submit" class="btn btn-outline-primary">Registrar</button>
-		</form>    
+		</form>
 	</div>
 </body>
 </html>

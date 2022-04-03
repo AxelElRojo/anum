@@ -6,9 +6,11 @@
 	<title>Listado de enfermedades</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script type="text/javascript" src="../js/app.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+	<script type="text/javascript" src="../includes/js/app.js"></script>
+	<script type="text/javascript" src="../includes/js/animal.js"></script>
+	<script type="text/javascript" src="../includes/js/enfermedad.js"></script>
 </head>
 <body>
 	<?php
@@ -16,65 +18,20 @@
 	?>
 	<div class="container">
 		<h1 class="text-center">Listado de enfermedades</h1>
-		<select name="" id="select" class="form-control" onchange="cargarEnfermedad()">
+		<select id="select" class="form-control" onchange="enfermedad.listar('tabla', this.value, true)">
 			<option value="" selected disabled>Selecciona un animal</option>
 		</select>
 		<table id="tabla" class="table table-striped table-dark table-bordered table-hover table-sm " hidden>
 			<tr>
-				<th scope="col" >Nombre</th>
-				<th scope="col">Enfermedad</th>
+				<th scope="col">Nombre</th>
+				<th scope="col">Descripción</th>
+				<th scope="col">Curada</th>
 			</tr>
 		</table>
 	</div>
 	<script type="text/javascript">
 		const tablaOriginal = $("#tabla").clone();
-		$.ajax({
-			url: "http://localhost/anum/backend/animal/listar.php",
-			method: "POST",
-			success : ( response ) => {
-				for (var i = 0; i < response.data.length; i++) 
-				{
-					var option = $("<option></option>").val(response.data[i].id).text(response.data[i].nombre);
-					$('#select').append(option);
-				}
-			},
-			error : ( request, status, error ) => {
-				console.log(request.responseText, status, error);
-			}
-		});
-		function cargarEnfermedad()
-		{
-			$.ajax({
-				url: "http://localhost/anum/backend/enfermedad/listar.php",
-				method: "POST",
-				data: {
-					idAnimal: $("#select").val()
-				},
-				success : ( response ) => {
-					$("#tabla").replaceWith(tablaOriginal.clone());
-					if(response.data.length == 0)
-					{
-						alert("sin resultados");
-					}
-					else
-					{
-						for (var i = 0; i < response.data.length; i++) 
-						{
-							var animal = $("<td></td>").text($("#select > option:selected").text());
-							var nombre = $("<td></td>").text(response.data[i].nombre);
-							var row = $("<tr></tr>");
-							row.append(animal);
-							row.append(nombre);
-							$("#tabla").append(row);
-						}
-						$("#tabla").attr('hidden', false);
-					}
-				},
-				error : ( request, status, error ) => {
-					console.log(request.responseText, status, error);
-				}
-			});
-		}
+		animal.listar({}, 'select', false);
 	</script>
 </body>
 </html>

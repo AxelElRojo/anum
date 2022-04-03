@@ -25,41 +25,20 @@
 		</table>
 
 	<script type="text/javascript">
-		var especie = {};
+		var especies = {};
 		$.ajax({
 			url: "http://localhost/anum/backend/especie/listar.php",
 			method: "POST",
 			success : ( response ) => {
-				for (var i = 0; i < response.data.length; i++) 
-				{
-					especie[response.data[i].id] = response.data[i].nombre;
+				for (var i = 0; i < response.data.length; i++){
+					especies[response.data[i].id] = response.data[i].nombre;
 				}
 			},
 			error : ( request, status, error ) => {
 				console.log(request.responseText, status, error);
 			}
 		});
-		$.ajax({
-			url: "http://localhost/anum/backend/animal/listar.php",
-			method: "POST",
-			success : ( response ) => {
-				var tabla = $('#tabla');
-				for (var i = 0; i < response.data.length; i++) 
-				{
-					var nombre = $("<td></td>").text(response.data[i].nombre);
-					var edad = $("<td></td>").text(response.data[i].edad);
-					var idEspecie = $("<td></td>").text(especie[response.data[i].idEspecie]);
-					var row = $("<tr></tr>");
-					row.append(nombre);
-					row.append(edad);
-					row.append(idEspecie);
-					$("#tabla").append(row);
-				}
-			},
-			error : ( request, status, error ) => {
-				console.log(request.responseText, status, error);
-			}
-		});
+		animal.listar(especies);
 	</script>
 </body>
 </html>

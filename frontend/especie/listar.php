@@ -22,23 +22,7 @@
 			</tr>
 		</table>
 	<script type="text/javascript">
-		$.ajax({
-			url: "http://localhost/anum/backend/especie/listar.php",
-			method: "POST",
-			success : ( response ) => {
-				var tabla = $('#tabla');
-				for (var i = 0; i < response.data.length; i++) 
-				{
-					var nombre = $("<td></td>").val(response.data[i].nombre).text(response.data[i].nombre);
-					var row = $("<tr></tr>");
-					row.append(nombre);
-					$("#tabla").append(row);
-				}
-			},
-			error : ( request, status, error ) => {
-				console.log(request.responseText, status, error);
-			}
-		});
+		animal.listar('tabla');
 	</script>
 </body>
 </html>
