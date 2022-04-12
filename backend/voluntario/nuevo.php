@@ -6,4 +6,7 @@ $stmt = $db_con->prepare('INSERT INTO voluntario(nombre, correo) VALUES(?,?)');
 $stmt->bind_param('ss', $data['nombre'], $data['correo']);
 $stmt->execute();
 header('Content-Type: application/json');
-echo json_encode(array('exito' => $stmt->affected_rows == 1));
+if($stmt->affected_rows == 1)
+	echo json_encode(array("exito" => true, "id" => $stmt->insert_id));
+else
+	echo json_encode(array("exito" => false));

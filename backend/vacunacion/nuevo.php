@@ -6,4 +6,7 @@ $stmt = $db_con->prepare('INSERT INTO vacunacion(tipo, marca, fecha, idAnimal, i
 $stmt->bind_param('sssii', $data['tipo'], $data['marca'], $data['fecha'], $data['idAnimal'], $data['idGasto']);
 $stmt->execute();
 header('Content-Type: application/json');
-echo json_encode(array("exito" => $stmt->affected_rows));
+if($stmt->affected_rows == 1)
+	echo json_encode(array("exito" => true, "id" => $stmt->insert_id));
+else
+	echo json_encode(array("exito" => false));

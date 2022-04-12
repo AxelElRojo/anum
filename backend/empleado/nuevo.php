@@ -12,4 +12,7 @@ if(!isEmailRegistered($data['correo'], $db_con)){
 }else
 	$success = false;
 header('Content-Type: application/json');
-echo json_encode(array('exito' => $success));
+if($stmt->affected_rows == 1)
+	echo json_encode(array("exito" => $success, "id" => $stmt->insert_id));
+else
+	echo json_encode(array("exito" => $success));

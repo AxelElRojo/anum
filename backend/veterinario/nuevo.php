@@ -6,4 +6,7 @@ $stmt = $db_con->prepare('INSERT INTO veterinario(nombre, correo, telefono, dire
 $stmt->bind_param('sssss', $data['nombre'], $data['correo'], $data['telefono'], $data['direccion'], $data['horario']);
 $stmt->execute();
 header('Content-Type: application/json');
-echo json_encode(array('exito' => $stmt->affected_rows == 1));
+if($stmt->affected_rows == 1)
+	echo json_encode(array("exito" => true, "id" => $stmt->insert_id));
+else
+	echo json_encode(array("exito" => false));
