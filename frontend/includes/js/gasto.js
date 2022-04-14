@@ -1,5 +1,5 @@
 var gasto = {};
-gasto.alta = (concepto, fecha, cantidad) => {
+gasto.alta = (concepto, fecha, cantidad, callback = null, args = {}) => {
 	if(!concepto || !fecha || !cantidad)
 		mostrarMensaje('Llenar datos');
 	else
@@ -12,7 +12,9 @@ gasto.alta = (concepto, fecha, cantidad) => {
 			},
 			method: "POST",
 			success : (response) => {
-				if(response.exito)
+				if(callback)
+					callback(args);
+				else if(response.exito)
 					mostrarMensaje('Registro exitoso');
 			},
 			error : ( request, status, error ) => {

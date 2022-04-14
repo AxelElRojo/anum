@@ -23,6 +23,30 @@ tratamiento.alta = (duracion, frecuencia, descripcion, idAnimal) => {
 			}
 	});
 };
+tratamiento.callback = (args) => {
+	if(!args.duracion || !args.frecuencia || !args.descripcion || !args.idAnimal)
+		mostrarMensaje('Llenar los datos');
+	else
+		$.ajax({
+			url: "http://localhost/anum/backend/tratamiento/nuevo.php",
+			data: {
+				duracion: args.duracion,
+				frecuencia: args.frecuencia,
+				descripcion: args.descripcion,
+				idAnimal: args.idAnimal
+			},
+			method: "POST",
+			success : ( response ) => {
+				if(response.exito){
+					mostrarMensaje('Registro exitoso');
+					window.reload();
+				}
+			},
+			error : ( request, status, error ) => {
+				console.log(request.responseText, status, error);
+			}
+	});
+}
 tratamiento.modificar = (idTratamiento, duracion, frecuencia, descripcion) => {
 	if(!idTratamiento || !duracion || !frecuencia || !descripcion)
 		mostrarMensaje('Llenar datos');

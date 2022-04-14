@@ -21,6 +21,28 @@ vacunacion.alta = (tipo, marca, fecha, idAnimal) => {
 			}
 		});
 }
+vacunacion.calback = (args) => {
+	if(!args.tipo || !args.marca || !args.fecha || !args.idAnimal)
+		mostrarMensaje("Llenar datos");
+	else
+		$.ajax({
+			url: "http://localhost/anum/backend/vacunacion/nuevo.php",
+			data: {
+				tipo: args.tipo,
+				marca: args.marca,
+				fecha: args.fecha,
+				idAnimal: args.idAnimal
+			},
+			method: "POST",
+			success : ( response ) => {
+				if(response.exito)
+					mostrarMensaje('Registro exitoso');
+			},
+			error : ( request, status, error ) => {
+				console.log(request.responseText, status, error);
+			}
+		});
+}
 vacunacion.listar = (idElemento, idAnimal, tabla = true) => {
 	if(!idAnimal)
 		mostrarMensaje('Llenar datos');
