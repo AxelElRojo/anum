@@ -12,11 +12,10 @@ $stmt->execute();
 $res = $stmt->get_result();
 unset($data);
 $data['transacciones'] = [];
-$sum = 0;
+$data['total'] = 0;
 while($row = $res->fetch_assoc()){
 	array_push($data['transacciones'], $row);
-	$sum += $row['cantidad'];
+	$data['total'] += $row['cantidad'];
 }
-$data['total'] = $sum;
 header('Content-Type: application/json');
 echo json_encode($data);
