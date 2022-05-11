@@ -1,6 +1,5 @@
 <?php
 require_once('../backend/.includes/util.inc.php');
-header('Content-Type: application/json');
 if(session_exists()){
 	header('Location: menu.php');
 	die();
