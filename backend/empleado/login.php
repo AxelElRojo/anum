@@ -2,8 +2,8 @@
 require_once('../.includes/db.inc.php');
 require_once('../.includes/util.inc.php');
 $data = escapeArray($_POST, $db_con);
-$stmt = $db_con->prepare('SELECT id, nombre, contraseña FROM empleado WHERE correo=? LIMIT 1');
-$stmt->bind_param('s', $data['correo']);
+$stmt = $db_con->prepare('SELECT id, nombre, contraseña FROM empleado WHERE correo=? OR usuario=? LIMIT 1');
+$stmt->bind_param('ss', $data['correo'], $data['correo']);
 $stmt->execute();
 $res = $stmt->get_result();
 $row = $res->fetch_assoc();
