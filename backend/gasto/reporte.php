@@ -1,7 +1,7 @@
 <?php
 require_once('../.includes/db.inc.php');
 require_once('../.includes/util.inc.php');
-$data = escapeArray($_GET, $db_con);
+$data = escapeArray($_POST, $db_con);
 $stmt = $db_con->prepare('(
 	SELECT fecha, cantidad, "Donación" AS concepto FROM donaciones WHERE fecha BETWEEN ? AND ?
 )UNION(
