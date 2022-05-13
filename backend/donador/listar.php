@@ -1,7 +1,7 @@
 <?php
 require_once('../.includes/db.inc.php');
 require_once('../.includes/util.inc.php');
-$stmt = $db_con->prepare('SELECT id, nombre, rfc FROM donador WHERE eliminado=0');
+$stmt = $db_con->prepare('SELECT id, nombre, rfc, correo FROM donador WHERE eliminado=0');
 $stmt->execute();
 $data = [];
 $res = $stmt->get_result();

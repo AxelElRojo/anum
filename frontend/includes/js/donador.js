@@ -11,14 +11,40 @@ donador.alta = (nombre, rfc, correo) => {
 				correo: correo
 			},
 			method: "POST",
-			success : ( response ) => {
+			success : (response) => {
 				if(response.exito)
 					mostrarMensaje('Registro exitoso');
 			},
-			error : ( request, status, error ) => {
+			error : (request, status, error) => {
 				console.log(request.responseText, status, error);
 			}
 		});
+}
+donador.listar = (idElemento, tabla = true) => {
+	$.ajax({
+		url: "http://localhost/anum/backend/donador/listar.php",
+		method: "POST",
+		success : (response) => {
+			for(let i=0; i < response.length; ++i){
+				if(tabla){
+					var nombre = $('<td></td>').text(response[i].nombre);
+					var correo = $('<td></td>').text(response[i].correo);
+					var rfc = $('<td></td>').text(response[i].rfc);
+					var row = $('<tr></tr>');
+					row.append(nombre);
+					row.append(correo);
+					row.append(rfc);
+					$(`#${idElemento}`).append(row);
+				}else{
+					var option = $("<option></option>").val(response[i].id).text(response[i].nombre);
+					$(`#${idElemento}`).append(option);
+				}
+			}
+		},
+		error : (request, status, error) => {
+			console.log(request.responseText, status, error);
+		}
+	});
 }
 donador.eliminar = (idDonador) => {
 	if(!idDonador)
@@ -57,7 +83,6 @@ donador.modificar = (idDonador, nombre, rfc, correo) => {
 				correo: correo
 			},
 			success : (response) => {
-				console.log(response);
 				if(response.exito){
 					mostrarMensaje('Registro exitoso');
 					location.reload();
@@ -82,9 +107,9 @@ donador.cargar = (idDonador) => {
 				id: idDonador
 			},
 			success : (response) => {
-				$('#rfc').val(response.data[0].rfc);
-				$('#nombre').val(response.data[0].nombre);
-				$('#correo').val(response.data[0].correo);
+				$('#rfc').val(response[0].rfc);
+				$('#nombre').val(response[0].nombre);
+				$('#correo').val(response[0].correo);
 				$('#formulario > *').show();
 			},
 			error : (request, status, error) => {
