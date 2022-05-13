@@ -1,7 +1,9 @@
 <?php
 require_once('../.includes/db.inc.php');
 require_once('../.includes/util.inc.php');
-$stmt = $db_con->prepare('SELECT id, fecha, cantidad, idDonador FROM donaciones WHERE eliminado=0');
+$id = $db_con->real_escape_string($_POST['idDonador']);
+$stmt = $db_con->prepare('SELECT id, fecha, cantidad, idDonador FROM donaciones WHERE eliminado=0 AND idDonador=?');
+$stmt->bind_param('i', $id);
 $stmt->execute();
 $data = [];
 $res = $stmt->get_result();
