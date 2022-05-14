@@ -27,18 +27,18 @@ gasto.listar = (idElemento, tabla = true) => {
 		url: "http://localhost/anum/backend/gasto/listar.php",
 		method: "POST",
 		success : ( response ) => {
-			for (var i = 0; i < response.data.length; i++) {
+			for (var i = 0; i < response.length; i++) {
 				if(tabla){
-					var concepto = $("<td></td>").text(response.data[i].concepto);
-					var fecha = $("<td></td>").text(response.data[i].fecha);
-					var cantidad = $("<td></td>").text(response.data[i].cantidad);
+					var concepto = $("<td></td>").text(response[i].concepto);
+					var fecha = $("<td></td>").text(response[i].fecha);
+					var cantidad = $("<td></td>").text(response[i].cantidad);
 					var row = $("<tr></tr>");
 					row.append(concepto);
 					row.append(fecha);
 					row.append(cantidad);
 					$(`#${idElemento}`).append(row);
 				}else{
-					var option = $("<option></option>").val(response.data[i].id).text(response.data[i].nombre);
+					var option = $("<option></option>").val(response[i].id).text(response[i].nombre);
 					$(`#${idElemento}`).append(option);
 				}
 			}
