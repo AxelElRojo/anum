@@ -24,14 +24,16 @@ voluntario.listar = (idElemento, tabla = true) => {
 		url: "http://localhost/anum/backend/voluntario/listar.php",
 		method: "POST",
 		success : (response) => {
-			for (var i = 0; i < response.data.length; i++) {
+			for (var i = 0; i < response.length; i++) {
 				if(tabla){
-					var nombre = $("<td></td>").text(response.data[i].nombre);
+					var nombre = $("<td></td>").text(response[i].nombre);
+					var correo = $("<td></td>").text(response[i].correo);
 					var row = $("<tr></tr>");
 					row.append(nombre);
+					row.append(correo);
 					$(`#${idElemento}`).append(row);
 				}else{
-					var option = $("<option></option>").val(response.data[i].id).text(response.data[i].nombre);
+					var option = $("<option></option>").val(response[i].id).text(response[i].nombre);
 					$(`#${idElemento}`).append(option);
 				}
 			}
@@ -102,8 +104,8 @@ voluntario.cargar = (idVoluntario) => {
 				id: idVoluntario
 			},
 			success : (response) => {
-                $('#nombre').val(response.data[0].nombre);
-				$('#correo').val(response.data[0].correo);
+                $('#nombre').val(response[0].nombre);
+				$('#correo').val(response[0].correo);
 				$('#formulario > *').show();
 			},
 			error : (request, status, error) => {
