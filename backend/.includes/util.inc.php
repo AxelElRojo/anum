@@ -13,7 +13,8 @@ function uploadFile(string $base64_img) : string {
 }
 function isEmailRegistered(string $email, mysqli $db_con) : bool {
 	$stmt = $db_con->prepare('SELECT 1 FROM empleado WHERE correo=?');
-	$stmt->bind_param('s', $db_con->real_escape_string($email));
+	$email = $db_con->real_escape_string($email);
+	$stmt->bind_param('s', $email);
 	$stmt->execute();
 	$stmt->store_result();
 	return $stmt->num_rows() > 0;
