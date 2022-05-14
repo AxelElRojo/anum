@@ -1,3 +1,10 @@
+<?php
+require_once('../../backend/.includes/util.inc.php');
+if(!session_exists()){
+	header('Location: ../index.php');
+	die();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,8 +19,11 @@
 	<script type="text/javascript" src="../includes/js/voluntario.js"></script>
 </head>
 <body>
-	<?php
-		echo file_get_contents('../includes/header.html');
+<?php
+		if($_SESSION['admin'])
+			echo file_get_contents('../includes/admin_header.html');
+		else
+			echo file_get_contents('../includes/header.html');
 	?>
 	<div class="container">
 		<h1 class="text-center">Modificación de voluntarios</h1>

@@ -1,3 +1,10 @@
+<?php
+require_once('../../backend/.includes/util.inc.php');
+if(!session_exists()){
+	header('Location: ../index.php');
+	die();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

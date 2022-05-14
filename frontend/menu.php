@@ -21,9 +21,9 @@ if(!session_exists()){
 <body>
 	<?php
 		if($_SESSION['admin'])
-			echo file_get_contents('./includes/admin_header.html');
+			echo file_get_contents('./includes/admin_header_main.html');
 		else
-			echo file_get_contents('./includes/header.html');
+			echo file_get_contents('./includes/header_main.html');
 	?>
 	<canvas id="grafico" height="50" width="150"></canvas>
 </body>
