@@ -62,7 +62,7 @@ CREATE TABLE `anum`.`veterinario`(
 	`nombre` VARCHAR(30) NOT NULL,
 	`correo` VARCHAR(30) NOT NULL ,
 	`telefono` VARCHAR(20) NOT NULL ,
-	`direccion` VARCHAR(30) NOT NULL ,
+	`direccion` VARCHAR(255) NOT NULL ,
 	`horario` VARCHAR(30) NOT NULL,
 	`eliminado` BOOLEAN DEFAULT FALSE,
 	PRIMARY KEY(`id`)

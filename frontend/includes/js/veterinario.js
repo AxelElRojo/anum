@@ -27,18 +27,18 @@ veterinario.listar = (idElemento, tabla = true) => {
 		url: "http://localhost/anum/backend/veterinario/listar.php",
 		method: "POST",
 		success : (response) => {
-			for (var i = 0; i < response.data.length; i++) {
+			for (var i = 0; i < response.length; i++) {
 				if(tabla){
-					var nombre = $("<td></td>").text(response.data[i].nombre);
-					var telefono = $("<td></td>").text(response.data[i].telefono);
-					var direccion = $("<td></td>").text(response.data[i].direccion);
+					var nombre = $("<td></td>").text(response[i].nombre);
+					var telefono = $("<td></td>").text(response[i].telefono);
+					var direccion = $("<td></td>").text(response[i].direccion);
 					var row = $("<tr></tr>");
 					row.append(nombre);
 					row.append(telefono);
 					row.append(direccion);
 					$(`#${idElemento}`).append(row);
 				}else{
-					var option = $("<option></option>").val(response.data[i].id).text(response.data[i].nombre);
+					var option = $("<option></option>").val(response[i].id).text(response[i].nombre);
 					$(`#${idElemento}`).append(option);
 				}
 			}
@@ -60,7 +60,7 @@ veterinario.eliminar = (idVeterinario) => {
 					id: idVeterinario,
 				},
 				success : (response) => {
-					if(response.exito ){
+					if(response.exito){
 						mostrarMensaje("Eliminación exitosa");
 						location.reload();
 					}
@@ -87,7 +87,6 @@ veterinario.modificar = (idVeterinario, nombre, correo, telefono, direccion, hor
 				horario: horario
 			},
 			success : (response) => {
-				console.log(response);
 				if(response.exito){
 					mostrarMensaje('Registro exitoso');
 					location.reload();
@@ -102,7 +101,7 @@ veterinario.modificar = (idVeterinario, nombre, correo, telefono, direccion, hor
 		});
 }
 veterinario.cargar = (idVeterinario) => {
-	if(!idAnimal)
+	if(!idVeterinario)
 		mostrarMensaje('Llenar datos');
 	else
 		$.ajax({
@@ -112,11 +111,11 @@ veterinario.cargar = (idVeterinario) => {
 				id: idVeterinario
 			},
 			success : ( response ) => {
-				$('#nombre').val(response.data[0].nombre);
-				$('#correo').val(response.data[0].correo);
-				$('#telefono').val(response.data[0].telefono);
-				$('#direccion').val(response.data[0].direccion);
-				$('#horario').val(response.data[0].horario);
+				$('#nombre').val(response[0].nombre);
+				$('#correo').val(response[0].correo);
+				$('#telefono').val(response[0].telefono);
+				$('#direccion').val(response[0].direccion);
+				$('#horario').val(response[0].horario);
 				$('#formulario > *').show();
 			},
 			error : ( request, status, error ) => {
