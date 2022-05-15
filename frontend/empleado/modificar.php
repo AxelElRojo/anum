@@ -1,3 +1,10 @@
+<?php
+require_once('../../backend/.includes/util.inc.php');
+if(!session_exists()){
+	header('Location: ../index.php');
+	die();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,20 +53,9 @@
 				<input type="text" class="form-control" placeholder="Ingresa el area" id="area">
 			</div>
 			<div class="form-check">
-				<label class="form-check-label" for="esAdmin">
-			    Administrador
-			  	</label>
-			   	<input class="form-check-input" type="checkbox" id="esAdmin">
+				<label class="form-check-label" for="esAdmin">¿Hacer administrador? </label>
+				<input class="form-check-input" type="checkbox" id="esAdmin">
 			</div>
-			<!-- <div class="form-group mb-3">
-				<label for="contacto">contacto:</label>
-				<input type="number" min="0" class="form-control" id="contacto">
-			</div> -->
-			<!-- 
-			<div class="form-group mb-3">
-				<label>agrega foto del animal</label>
-				<input type="file" id="foto" oninput="encodeImgtoBase64()">
-			</div> -->
 			<button onclick="
 			empleado.modificar($('#select').val(), $('#usuario').val(), $('#nombre').val(), $('#contraseña').val(), $('#correo').val() , $('#area').val(), $('#esAdmin').prop('checked'))"
 			class="btn btn-outline-primary">Modificar
@@ -70,10 +66,8 @@
 	</form>
 	</div>
 	<script type="text/javascript">
-		$('#formulario > *').hide(); 
-		const tablaOriginal = $("#tabla").clone();
+		$('#formulario > *').hide();
 		empleado.listar('select', false);
 	</script>
-
 </body>
 </html>
