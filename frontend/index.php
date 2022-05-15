@@ -21,7 +21,7 @@ if(session_exists()){
 		<h4 class="text-center">Inicio de sesión</h4>
 		<form method="POST" onsubmit="event.preventDefault(); login();">
 			<div class="mb-3">
-				<input type="email" class="form-control" id="correo" placeholder='Correo electrónico o Usuario' aria-describedby="emailHelp">
+				<input type="text" class="form-control" id="correo" placeholder='Correo electrónico o Usuario' aria-describedby="emailHelp">
 			</div>
 			<div class="mb-3">
 				<input type="password" class="form-control" id="contraseña" placeholder="Contraseña">
