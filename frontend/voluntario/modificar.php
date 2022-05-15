@@ -19,7 +19,7 @@ if(!session_exists()){
 	<script type="text/javascript" src="../includes/js/voluntario.js"></script>
 </head>
 <body>
-<?php
+	<?php
 		if($_SESSION['admin'])
 			echo file_get_contents('../includes/admin_header.html');
 		else

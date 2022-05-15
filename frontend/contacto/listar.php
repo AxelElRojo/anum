@@ -15,7 +15,10 @@
 </head>
 <body>
 	<?php
-		echo file_get_contents('../includes/header.html');
+		if($_SESSION['admin'])
+			echo file_get_contents('../includes/admin_header.html');
+		else
+			echo file_get_contents('../includes/header.html');
 	?>
 	<div class="container">
 		<h1 class="text-center">Listado de contactos</h1>
