@@ -38,7 +38,7 @@ if(!session_exists()){
 				data: {
 					labels: ['Donaciones $MXN', 'Gastos $MXN', 'Ahorros $MXN'],
 					datasets: [{
-						data: [response.mensual.donacion.total, response.mensual.gasto.total, response.mensual.total],
+						data: [response.mensual.donacion.total, response.mensual.gasto.total*-1, response.mensual.total],
 						backgroundColor: [
 							'rgba(86, 240, 86, 0.2)',
 							'rgba(255, 99, 132, 0.2)',
