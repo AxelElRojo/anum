@@ -71,7 +71,7 @@ empleado.eliminar = (idEmpleado) => {
 		}
 }
 empleado.modificar = (idEmpleado, usuario, nombre, contraseña, correo, area, esAdmin) => {
-	if(!idEmpleado || !usuario || !nombre || !contraseña || !correo || !area)
+	if(!idEmpleado || !usuario || !nombre || !correo || !area)
 		mostrarMensaje('Llenar datos');
 	else
 		$.ajax({
