@@ -18,7 +18,6 @@ CREATE TABLE `anum`.`animal`(
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`nombre` VARCHAR(20) NOT NULL,
 	`edad` INT(11) NOT NULL,
-	`foto` VARCHAR(255) NOT NULL ,
 	`idEspecie` INT NOT NULL REFERENCES especie(id),
 	`idContacto` INT, -- NOT NULL REFERENCES contacto(id),
 	`eliminado` BOOLEAN DEFAULT FALSE,

@@ -17,6 +17,7 @@ if(!session_exists()){
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 	<script type="text/javascript" src="../includes/js/app.js"></script>
 	<script type="text/javascript" src="../includes/js/especie.js"></script>
+	<script type="text/javascript" src="../includes/js/contacto.js"></script>
 	<script type="text/javascript" src="../includes/js/animal.js"></script>
 </head>
 <body>
@@ -25,7 +26,7 @@ if(!session_exists()){
 	?>
 	<div class="container">
 		<h1 class="text-center">Alta de animales</h1>
-		<form action="#" id="formulario" method="POST" onsubmit="event.preventDefault(); animal.alta($('#nombre').val(), $('#edad').val(), $('#especie').val())">
+		<form action="#" id="formulario" method="POST" onsubmit="event.preventDefault(); animal.alta($('#nombre').val(), $('#edad').val(), $('#especie').val(), $('#contacto').val())">
 			<div class="form-group mb-3">
 				<label for="nombre">Nombre del animal:</label>
 				<input type="text" class="form-control" placeholder="Ingresa el nombre" id="nombre">
@@ -39,20 +40,17 @@ if(!session_exists()){
 				<select class="form-control" id="especie">
 				</select>
 			</div>
-			<!-- <div class="form-group mb-3">
-				<label for="contacto">contacto:</label>
-				<input type="number" min="0" class="form-control" id="contacto">
-			</div> -->
-			<!-- 
 			<div class="form-group mb-3">
-				<label>agrega foto del animal</label>
-				<input type="file" id="foto" oninput="encodeImgtoBase64()">
-			</div> -->
+				<label for="especie">Elige el contacto</label>
+				<select class="form-control" id="contacto">
+				</select>
+			</div>
 			<button type="submit" class="btn btn-outline-primary">Registrar</button>
 		</form>
 	</div>
 	<script type="text/javascript">
 		especie.listar('especie', false);
+		contacto.listar('contacto', false);
 	</script>
 </body>
 </html>

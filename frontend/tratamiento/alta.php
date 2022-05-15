@@ -18,8 +18,17 @@ if(!session_exists()){
 	<script type="text/javascript" src="../includes/js/app.js"></script>
 	<script type="text/javascript" src="../includes/js/animal.js"></script>
 	<script type="text/javascript" src="../includes/js/tratamiento.js"></script>
+	<script type="text/javascript" src="../includes/js/gasto.js"></script>
 	<script type="text/javascript">
 		animal.listar({}, 'animal', false);
+		function wrapper(){
+			gasto.alta(`Tratamiento de ${$('#animal').val}`, $('#fecha').val(), $('#precio').val(), tratamiento.callback, {
+				duracion: $('#duracion').val(),
+				frecuencia: $('#frecuencia').val(),
+				descripcion: $('#descripcion').val(),
+				idAnimal: $('#animal').val()
+			});
+		}
 	</script>
 </head>
 <body>
@@ -28,9 +37,14 @@ if(!session_exists()){
 	?>
 	<div class="container">
 		<h1 class="text-center">Alta de tratamiento</h1>
-		<form id="formulario" method="POST" onsubmit="event.preventDefault(); tratamiento.alta($('#duracion').val(), $('#frecuencia').val(), $('#descripcion').val(), $('#idAnimal').val())">
+		<form id="formulario" method="POST" onsubmit="event.preventDefault(); wrapper()">
+			<div class="form-group mb-3">
+				<label for="animal">Selecciona el animal:</label>
+				<select class="form-control" id="animal">
+				</select>
+			</div>
 			<div class="form-group">
-				<label for="duracion">Duracion:</label>
+				<label for="duracion">Duración:</label>
 				<input type="text" class="form-control" placeholder="Ingresa la duracion del tratamiento" id="duracion">
 			</div>
 			<div class="form-group">
@@ -38,14 +52,20 @@ if(!session_exists()){
 				<input type="text" class="form-control" placeholder="Ingresa la frecuencia" id="frecuencia">
 			</div>
 			<div class="form-group">
-				<label for="fecha">Descripcion:</label>
+				<label for="fecha">Descripción:</label>
 				<input type="text" class="form-control" placeholder="Ingresa la descripcion" id="descripcion">
 			</div>
-			<div class="form-group mb-3">
-				<label for="idAnimal">Selecciona el animal:</label>
-				<select class="form-control" id="animal">
-				</select>
-			</div> 
+			<div class="form-group">
+				<label for="fecha">Fecha:</label>
+				<input type="date" class="form-control" placeholder="Ingresa la descripcion" id="fecha">
+			</div>
+			<label for="precio">Costo:</label>
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text">MXN</span>
+				</div>
+				<input class="form-control" type="number" id="precio" step="0.01" min="0"/>
+			</div>
 			<button type="submit" class="btn btn-outline-primary">Enviar</button>
 		</form>
 	</div>

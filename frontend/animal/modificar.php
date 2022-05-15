@@ -18,6 +18,7 @@ if(!session_exists()){
 	<script type="text/javascript" src="../includes/js/app.js"></script>
 	<script type="text/javascript" src="../includes/js/animal.js"></script>
 	<script type="text/javascript" src="../includes/js/especie.js"></script>
+	<script type="text/javascript" src="../includes/js/contacto.js"></script>
 </head>
 <body>
 	<?php
@@ -38,21 +39,17 @@ if(!session_exists()){
 				<input type="number" min="0" class="form-control" id="edad">
 			</div>
 			<div class="form-group mb-3">
-				<label for="especie">Elige la especie</label>
+				<label for="especie">Elige la especie:</label>
 				<select class="form-control" id="especie">
 				</select>
 			</div>
-			<!-- <div class="form-group mb-3">
-				<label for="contacto">contacto:</label>
-				<input type="number" min="0" class="form-control" id="contacto">
-			</div> -->
-			<!-- 
 			<div class="form-group mb-3">
-				<label>agrega foto del animal</label>
-				<input type="file" id="foto" oninput="encodeImgtoBase64()">
-			</div> -->
+				<label for="especie">Elige el contacto:</label>
+				<select class="form-control" id="contacto">
+				</select>
+			</div>
 			<button onclick="
-				animal.modificar($('#select').val(), $('#nombre').val(), $('#edad').val(), $('#especie').val())"
+				animal.modificar($('#select').val(), $('#nombre').val(), $('#edad').val(), $('#especie').val(), $('#contacto').val())"
 				class="btn btn-outline-primary">Modificar
 			</button>
 			<button onclick="
@@ -62,9 +59,9 @@ if(!session_exists()){
 	</div>
 	<script type="text/javascript">
 		$('#formulario > *').hide(); 
-		const tablaOriginal = $("#tabla").clone();
 		animal.listar({}, 'select', false);
-		especie.listar('especie');
+		especie.listar('especie', false);
+		contacto.listar('contacto', false);
 	</script>
 </body>
 </html>

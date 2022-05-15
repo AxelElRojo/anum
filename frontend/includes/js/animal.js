@@ -1,6 +1,6 @@
 var animal = {};
-animal.alta = (nombre, edad, idEspecie) => {
-	if(!nombre || !edad || !idEspecie)
+animal.alta = (nombre, edad, idEspecie, idContacto) => {
+	if(!nombre || !edad || !idEspecie || !idContacto)
 		mostrarMensaje("Llenar datos completos");
 	else
 		$.ajax({
@@ -8,10 +8,11 @@ animal.alta = (nombre, edad, idEspecie) => {
 			data: {
 				nombre: nombre,
 				edad: edad,
-				idEspecie: idEspecie
+				idEspecie: idEspecie,
+				idContacto: idContacto
 			},
 			method: "POST",
-			success : ( response ) => {
+			success : (response) => {
 				if(response.exito)
 					mostrarMensaje('Registro exitoso');
 			},
@@ -24,7 +25,7 @@ animal.listar = (especies, idElemento, tabla = true) => {
 	$.ajax({
 		url: "http://localhost/anum/backend/animal/listar.php",
 		method: "POST",
-		success : ( response ) => {
+		success : (response) => {
 			for (var i = 0; i < response.data.length; i++) {
 				if(tabla){
 					var nombre = $("<td></td>").text(response.data[i].nombre);
@@ -41,7 +42,7 @@ animal.listar = (especies, idElemento, tabla = true) => {
 				}
 			}
 		},
-		error : ( request, status, error ) => {
+		error : (request, status, error) => {
 			console.log(request.responseText, status, error);
 		}
 	});
@@ -57,20 +58,20 @@ animal.eliminar = (idAnimal) => {
 				data: {
 					id: idAnimal,
 				},
-				success : ( response ) => {
+				success : (response) => {
 					if(response.exito ){
 						mostrarMensaje("Eliminación exitosa");
 						location.reload();
 					}
 				},
-				error : ( request, status, error ) => {
+				error : (request, status, error) => {
 					console.log(request.responseText, status, error);
 				}
 			});
 		}
 }
-animal.modificar = (idAnimal, nombre, edad, idEspecie) => {
-	if(!idAnimal || !nombre || !edad || !idEspecie)
+animal.modificar = (idAnimal, nombre, edad, idEspecie, idContacto) => {
+	if(!idAnimal || !nombre || !edad || !idEspecie || !idContacto)
 		mostrarMensaje('Llenar datos');
 	else
 		$.ajax({
@@ -80,9 +81,10 @@ animal.modificar = (idAnimal, nombre, edad, idEspecie) => {
 				id: idAnimal,
 				nombre: nombre,
 				edad: edad,
-				idEspecie: idEspecie
+				idEspecie: idEspecie,
+				idContacto: idContacto
 			},
-			success : ( response ) => {
+			success : (response) => {
 				console.log(response);
 				if(response.exito){
 					mostrarMensaje('Registro exitoso');
@@ -92,7 +94,7 @@ animal.modificar = (idAnimal, nombre, edad, idEspecie) => {
 					location.reload();
 				}
 			},
-			error : ( request, status, error ) => {
+			error : (request, status, error) => {
 				console.log(request.responseText, status, error);
 			}
 		});
@@ -107,13 +109,14 @@ animal.cargar = (idAnimal) => {
 			data: {
 				id: idAnimal
 			},
-			success : ( response ) => {
+			success : (response) => {
 				$('#edad').val(response.data[0].edad);
 				$('#nombre').val(response.data[0].nombre);
 				$(`#especie > option[value=${response.data[0].idEspecie}]`).attr("selected", true);
+				$(`#contacto > option[value=${response.data[0].idContacto}]`).attr("selected", true);
 				$('#formulario > *').show();
 			},
-			error : ( request, status, error ) => {
+			error : (request, status, error) => {
 				console.log(request.responseText, status, error);
 			}
 	});

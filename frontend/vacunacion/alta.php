@@ -18,8 +18,17 @@ if(!session_exists()){
 	<script type="text/javascript" src="../includes/js/app.js"></script>
 	<script type="text/javascript" src="../includes/js/animal.js"></script>
 	<script type="text/javascript" src="../includes/js/vacunacion.js"></script>
+	<script type="text/javascript" src="../includes/js/gasto.js"></script>
 	<script type="text/javascript">
 		animal.listar({}, 'animal', false);
+		function wrapper(){
+			gasto.alta(`Vacuna ${$('#tipo').val} de ${$('#animal').val}`, $('#fecha').val(), $('#precio').val(), vacunacion.callback, {
+				duracion: $('#duracion').val(),
+				frecuencia: $('#frecuencia').val(),
+				descripcion: $('#descripcion').val(),
+				idAnimal: $('#animal').val()
+			});
+		}
 	</script>
 </head>
 <body>
@@ -28,7 +37,13 @@ if(!session_exists()){
 	?>
 	<div class="container">
 		<h1 class="text-center">Alta de vacunación</h1>
-		<form action="#" id="formulario" method="POST" onsubmit="event.preventDefault(); vacunacion.alta($('#tipo').val(), $('#marca').val(), $('#fecha').val(), $('#animal').val())">
+		<form action="#" id="formulario" method="POST" onsubmit="event.preventDefault(); wrapper();">
+			<label for="tipo">Selecciona el animal:</label>	
+			<div class="form-group mb-3">
+				<select class="form-control" id="animal">
+					<option value="" selected disabled>Selecciona un animal</option>
+				</select>
+			</div>
 			<div class="form-group">
 				<label for="tipo">Tipo de vacuna:</label>
 				<input type="text" class="form-control" placeholder="Ingresa el tipo" id="tipo">
@@ -41,10 +56,12 @@ if(!session_exists()){
 				<label for="fecha">Fecha:</label>
 				<input type="date" class="form-control" placeholder="Ingresa la fecha" id="fecha">
 			</div>
-			<div class="form-group mb-3">
-				<select class="form-control" id="animal">
-					<option value="" selected disabled>Selecciona un animal</option>
-				</select>
+			<label for="precio">Costo:</label>
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text">MXN</span>
+				</div>
+				<input class="form-control" type="number" id="precio" step="0.01" min="0"/>
 			</div>
 			<button type="submit" class="btn btn-outline-primary">Registrar</button>
 		</form>

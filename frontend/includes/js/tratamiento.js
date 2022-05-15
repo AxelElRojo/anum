@@ -24,7 +24,7 @@ tratamiento.alta = (duracion, frecuencia, descripcion, idAnimal) => {
 	});
 };
 tratamiento.callback = (args) => {
-	if(!args.duracion || !args.frecuencia || !args.descripcion || !args.idAnimal)
+	if(!args.duracion || !args.frecuencia || !args.descripcion || !args.idAnimal || !args.idGasto)
 		mostrarMensaje('Llenar los datos');
 	else
 		$.ajax({
@@ -33,16 +33,17 @@ tratamiento.callback = (args) => {
 				duracion: args.duracion,
 				frecuencia: args.frecuencia,
 				descripcion: args.descripcion,
-				idAnimal: args.idAnimal
+				idAnimal: args.idAnimal,
+				idGasto: args.idGasto
 			},
 			method: "POST",
-			success : ( response ) => {
+			success : (response) => {
 				if(response.exito){
 					mostrarMensaje('Registro exitoso');
 					window.reload();
 				}
 			},
-			error : ( request, status, error ) => {
+			error : (request, status, error) => {
 				console.log(request.responseText, status, error);
 			}
 	});

@@ -2,14 +2,8 @@
 require_once('../.includes/db.inc.php');
 require_once('../.includes/util.inc.php');
 $data = escapeArray($_POST, $db_con);
-// $dir_pic = uploadFile($_POST['foto']);
-
-$dir_pic = '';
-$i = 0;
-
-
-$stmt = $db_con->prepare('INSERT into animal(nombre, edad, foto, idEspecie, idContacto) VALUES(?,?,?,?,?)');
-$stmt->bind_param('sisii', $data['nombre'], $data['edad'], $dir_pic, $data['idEspecie'], $i);
+$stmt = $db_con->prepare('INSERT into animal(nombre, edad, idEspecie, idContacto) VALUES(?,?,?,?)');
+$stmt->bind_param('siii', $data['nombre'], $data['edad'], $data['idEspecie'], $data['idContacto']);
 $stmt->execute();
 header('Content-Type: application/json');
 if($stmt->affected_rows == 1)

@@ -21,8 +21,8 @@ vacunacion.alta = (tipo, marca, fecha, idAnimal) => {
 			}
 		});
 }
-vacunacion.calback = (args) => {
-	if(!args.tipo || !args.marca || !args.fecha || !args.idAnimal)
+vacunacion.callback = (args) => {
+	if(!args.tipo || !args.marca || !args.fecha || !args.idAnimal || !args.idGasto)
 		mostrarMensaje("Llenar datos");
 	else
 		$.ajax({
@@ -31,7 +31,8 @@ vacunacion.calback = (args) => {
 				tipo: args.tipo,
 				marca: args.marca,
 				fecha: args.fecha,
-				idAnimal: args.idAnimal
+				idAnimal: args.idAnimal,
+				idGasto: args.idGasto
 			},
 			method: "POST",
 			success : ( response ) => {

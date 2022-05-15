@@ -12,9 +12,10 @@ gasto.alta = (concepto, fecha, cantidad, callback = null, args = {}) => {
 			},
 			method: "POST",
 			success : (response) => {
-				if(callback)
+				if(callback){
+					args.idGasto = response.id;
 					callback(args);
-				else if(response.exito)
+				}else if(response.exito)
 					mostrarMensaje('Registro exitoso');
 			},
 			error : ( request, status, error ) => {

@@ -25,18 +25,18 @@ contacto.listar = (idElemento, tabla = true) => {
 		url: "http://localhost/anum/backend/contacto/listar.php",
 		method: "POST",
 		success : ( response ) => {
-			for (var i = 0; i < response.data.length; i++) {
+			for (var i = 0; i < response.length; i++) {
 				if(tabla){
-					var nombre = $("<td></td>").text(response.data[i].nombre);
-					var correo = $("<td></td>").text(response.data[i].correo);
-					var telefono = $("<td></td>").text(response.data[i].telefono);
+					var nombre = $("<td></td>").text(response[i].nombre);
+					var correo = $("<td></td>").text(response[i].correo);
+					var telefono = $("<td></td>").text(response[i].telefono);
 					var row = $("<tr></tr>");
 					row.append(nombre);
 					row.append(correo);
 					row.append(telefono);
 					$(`#${idElemento}`).append(row);
 				}else{
-					var option = $("<option></option>").val(response.data[i].id).text(response.data[i].nombre);
+					var option = $("<option></option>").val(response[i].id).text(response[i].nombre);
 					$(`#${idElemento}`).append(option);
 				}
 			}
@@ -95,7 +95,7 @@ contacto.cargar = (idContacto) => {
 			}
 	});
 }
-animal.eliminar = (idContacto) => {
+contacto.eliminar = (idContacto) => {
 	if(!idContacto)
 		mostrarMensaje("Llenar datos");
 	else

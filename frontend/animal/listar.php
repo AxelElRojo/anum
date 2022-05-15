@@ -38,16 +38,16 @@ if(!session_exists()){
 		$.ajax({
 			url: "http://localhost/anum/backend/especie/listar.php",
 			method: "POST",
-			success : ( response ) => {
+			success : (response) => {
 				for (var i = 0; i < response.data.length; i++){
 					especies[response.data[i].id] = response.data[i].nombre;
 				}
 			},
-			error : ( request, status, error ) => {
+			error : (request, status, error) => {
 				console.log(request.responseText, status, error);
 			}
 		});
-		animal.listar(especies);
+		animal.listar(especies, 'tabla');
 	</script>
 </body>
 </html>
