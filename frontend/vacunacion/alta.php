@@ -69,5 +69,9 @@ if(!session_exists()){
 			<button type="submit" class="btn btn-outline-primary">Registrar</button>
 		</form>
 	</div>
+	<script>
+		let fecha = new Date();
+		$('#fecha').val(fecha.toISOString().split('T')[0]);
+	</script>
 </body>
 </html>
