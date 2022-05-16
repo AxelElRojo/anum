@@ -17,6 +17,11 @@ if(!session_exists()){
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 	<script type="text/javascript" src="../includes/js/app.js"></script>
 	<script type="text/javascript" src="../includes/js/especie.js"></script>
+	<script>
+		function wrapper(){
+			especie.alta($('#especie').val());
+		}
+	</script>
 </head>
 <body>
 	<?php
@@ -27,7 +32,7 @@ if(!session_exists()){
 	?>
 	<div class="container">
 		<h1 class="text-center">Alta de especie</h1>
-		<form action="#" id="formulario" method="POST" onsubmit="event.preventDefault(); especie.alta($('#especie').val())">
+		<form id="formulario" method="POST" onsubmit="event.preventDefault(); wrapper();">
 			<div class="form-group mb-3">
 				<label for="especie">Nombre de la especie:</label>
 				<input type="text" class="form-control" placeholder="Ingresa el nombre de la especie" id="especie">

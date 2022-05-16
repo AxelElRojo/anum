@@ -85,7 +85,7 @@ contacto.cargar = (idContacto) => {
 				id: idContacto
 			},
 			success : ( response ) => {
-				$('#correo').val(response.data[0].nombre);
+				$('#nombre').val(response.data[0].nombre);
 				$('#telefono').val(response.data[0].telefono);
 				$('#correo').val(response.data[0].correo);
 				$('#formulario > *').show();

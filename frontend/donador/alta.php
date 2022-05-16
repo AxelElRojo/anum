@@ -26,7 +26,7 @@ if(!session_exists()){
 			echo file_get_contents('../includes/header.html');
 	?>
 	<div class="container">
-		<h1 class="text-center">Alta de especie</h1>
+		<h1 class="text-center">Alta de donador</h1>
 		<form action="#" id="formulario" method="POST" onsubmit="event.preventDefault(); donador.alta($('#nombre').val(), $('#rfc').val(), $('#correo').val())">
 			<div class="form-group mb-3">
 				<label for="nombre">Nombre del donador:</label>

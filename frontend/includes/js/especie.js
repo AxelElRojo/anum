@@ -6,14 +6,14 @@ especie.alta = (nombre) => {
 		$.ajax({
 			url: "http://localhost/anum/backend/especie/nuevo.php",
 			data: {
-				nombre: especie
+				nombre: nombre
 			},
 			method: "POST",
-			success : ( response ) => {
+			success : (response) => {
 				if(response.exito)
 					mostrarMensaje('Registro exitoso');
 			},
-			error : ( request, status, error ) => {
+			error : (request, status, error) => {
 				console.log(request.responseText, status, error);
 			}
 		});
@@ -22,7 +22,7 @@ especie.listar = (idElemento, tabla = true) => {
 	$.ajax({
 		url: "http://localhost/anum/backend/especie/listar.php",
 		method: "POST",
-		success : ( response ) => {
+		success : (response) => {
 			for (var i = 0; i < response.data.length; i++) {
 				if(tabla){
 					var nombre = $("<td></td>").val(response.data[i].nombre).text(response.data[i].nombre);

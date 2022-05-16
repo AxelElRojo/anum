@@ -1,5 +1,6 @@
 <?php
 function escapeArray(array $original, mysqli $db_con) : array {
+	$data = [];
 	foreach($original as $key => $value)
 		$data[$key] = $db_con->real_escape_string($value);
 	return $data;
