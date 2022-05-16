@@ -22,10 +22,10 @@ if(!session_exists()){
 	<script type="text/javascript">
 		animal.listar({}, 'animal', false);
 		function wrapper(){
-			gasto.alta(`Vacuna ${$('#tipo').val} de ${$('#animal').val}`, $('#fecha').val(), $('#precio').val(), vacunacion.callback, {
-				duracion: $('#duracion').val(),
-				frecuencia: $('#frecuencia').val(),
-				descripcion: $('#descripcion').val(),
+			gasto.alta(`Vacuna ${$('#tipo').val()} de ${$('#animal option:selected').text()}`, $('#fecha').val(), $('#precio').val(), vacunacion.callback, {
+				tipo: $('#tipo').val(),
+				marca: $('#marca').val(),
+				fecha: $('#fecha').val(),
 				idAnimal: $('#animal').val()
 			});
 		}

@@ -23,7 +23,7 @@ vacunacion.alta = (tipo, marca, fecha, idAnimal) => {
 }
 vacunacion.callback = (args) => {
 	if(!args.tipo || !args.marca || !args.fecha || !args.idAnimal || !args.idGasto)
-		mostrarMensaje("Llenar datos");
+		console.log(args);
 	else
 		$.ajax({
 			url: "http://localhost/anum/backend/vacunacion/nuevo.php",

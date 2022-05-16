@@ -38,7 +38,7 @@ CREATE TABLE `anum`.`empleado`(
 
 CREATE TABLE `anum`.`gasto`(
 	`id` INT NOT NULL AUTO_INCREMENT,
-	`concepto` VARCHAR(30) NOT NULL,
+	`concepto` VARCHAR(100) NOT NULL,
 	`fecha` DATE NOT NULL,
 	`cantidad` DECIMAL(10, 2) NOT NULL,
 	`eliminado` BOOLEAN DEFAULT FALSE,
