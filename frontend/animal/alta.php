@@ -32,7 +32,7 @@ if(!session_exists()){
 		<form action="#" id="formulario" method="POST" onsubmit="event.preventDefault(); animal.alta($('#nombre').val(), $('#edad').val(), $('#especie').val(), $('#contacto').val())">
 			<div class="form-group mb-3">
 				<label for="nombre">Nombre del animal:</label>
-				<input type="text" class="form-control" placeholder="Ingresa el nombre" id="nombre">
+				<input type="text" class="form-control" id="nombre">
 			</div>
 			<div class="form-group mb-3">
 				<label for="edad">Edad:</label>

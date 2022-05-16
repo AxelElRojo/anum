@@ -37,7 +37,7 @@ if(!session_exists()){
 		<form action="#" id="formulario" method="POST" onsubmit="event.preventDefault();">
 			<div class="form-group mb-3">
 				<label for="tipo">Tipo de vacuna:</label>
-				<input type="text" class="form-control" placeholder="Ingresa el tipo de vacuna" id="tipo">
+				<input type="text" class="form-control" id="tipo">
 			</div>
 			<div class="form-group mb-3">
 				<label for="marca">Marca:</label>

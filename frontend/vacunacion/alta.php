@@ -49,15 +49,15 @@ if(!session_exists()){
 			</div>
 			<div class="form-group">
 				<label for="tipo">Tipo de vacuna:</label>
-				<input type="text" class="form-control" placeholder="Ingresa el tipo" id="tipo">
+				<input type="text" class="form-control" id="tipo">
 			</div>
 			<div class="form-group">
 				<label for="marca">Marca:</label>
-				<input type="text" class="form-control" placeholder="Ingresa la marca" id="marca">
+				<input type="text" class="form-control" id="marca">
 			</div>
 			<div class="form-group">
 				<label for="fecha">Fecha:</label>
-				<input type="date" class="form-control" placeholder="Ingresa la fecha" id="fecha">
+				<input type="date" class="form-control" id="fecha">
 			</div>
 			<label for="precio">Costo:</label>
 			<div class="input-group mb-3">

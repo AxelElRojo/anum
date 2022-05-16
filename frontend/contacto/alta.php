@@ -31,7 +31,7 @@ if(!session_exists()){
 		<form action="#" id="formulario" method="POST" onsubmit="event.preventDefault(); contacto.alta($('#nombre').val(), $('#correo').val(), $('#telefono').val())">
 			<div class="form-group mb-3">
 				<label for="nombre">Nombre del contacto:</label>
-				<input type="text" class="form-control" placeholder="Ingresa el nombre" id="nombre">
+				<input type="text" class="form-control" id="nombre">
 			</div>
 			<div class="form-group mb-3">
 				<label for="correo">Correo:</label>

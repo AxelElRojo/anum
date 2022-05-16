@@ -48,19 +48,19 @@ if(!session_exists()){
 			</div>
 			<div class="form-group">
 				<label for="duracion">Duración:</label>
-				<input type="text" class="form-control" placeholder="Ingresa la duracion del tratamiento" id="duracion">
+				<input type="text" class="form-control" id="duracion">
 			</div>
 			<div class="form-group">
 				<label for="frecuencia">Frecuencia:</label>
-				<input type="text" class="form-control" placeholder="Ingresa la frecuencia" id="frecuencia">
+				<input type="text" class="form-control" id="frecuencia">
 			</div>
 			<div class="form-group">
 				<label for="fecha">Descripción:</label>
-				<input type="text" class="form-control" placeholder="Ingresa la descripcion" id="descripcion">
+				<input type="text" class="form-control" id="descripcion">
 			</div>
 			<div class="form-group">
 				<label for="fecha">Fecha:</label>
-				<input type="date" class="form-control" placeholder="Ingresa la descripcion" id="fecha">
+				<input type="date" class="form-control" id="fecha">
 			</div>
 			<label for="precio">Costo:</label>
 			<div class="input-group mb-3">

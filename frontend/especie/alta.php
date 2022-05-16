@@ -35,7 +35,7 @@ if(!session_exists()){
 		<form id="formulario" method="POST" onsubmit="event.preventDefault(); wrapper();">
 			<div class="form-group mb-3">
 				<label for="especie">Nombre de la especie:</label>
-				<input type="text" class="form-control" placeholder="Ingresa el nombre de la especie" id="especie">
+				<input type="text" class="form-control" id="especie">
 			</div>
 			<button type="submit" class="btn btn-outline-primary">Registrar</button>
 		</form>

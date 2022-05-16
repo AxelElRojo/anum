@@ -35,15 +35,15 @@ if(!session_exists()){
 			enfermedad.alta($('#nombre').val(), $('#descripcion').val(), $('#idAnimal').val(), $('#tratoEspecial').val())">
 			<div class="form-group">
 				<label for="nombre">Nombre:</label>
-				<input type="text" class="form-control" placeholder="Ingresa el nombre de la enfermedad" id="nombre">
+				<input type="text" class="form-control" id="nombre">
 			</div>
 			<div class="form-group">
-				<label for="descripcion">Descripcion:</label>
-				<input type="text" class="form-control" placeholder="Ingresa la descripcion" id="descripcion">
+				<label for="descripcion">Descripción:</label>
+				<input type="text" class="form-control" id="descripcion">
 			</div>
 			<div class="form-group">
-				<label for="tratoEspecial">Trato especial</label>
-				<input type="text" class="form-control" placeholder="Ingresa la descripcion" id="tratoEspecial">
+				<label for="tratoEspecial">Trato especial:</label>
+				<input type="text" class="form-control" id="tratoEspecial">
 			</div>
 			<div class="form-group mb-3">
 				<label for="idAnimal">Selecciona el animal:</label>

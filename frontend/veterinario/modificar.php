@@ -33,23 +33,23 @@ if(!session_exists()){
 		<form action="#" id="formulario" method="POST" onsubmit="event.preventDefault();">
 			<div class="form-group mb-3">
 				<label for="especie">Nombre del veterinario:</label>
-				<input type="text" class="form-control" placeholder="Nombre del veterinario" id="nombre">
+				<input type="text" class="form-control" id="nombre">
 			</div>
 			<div class="form-group mb-3">
 				<label for="especie">Correo electrónico:</label>
-				<input type="email" class="form-control" placeholder="Correo del veterinario" id="correo">
+				<input type="email" class="form-control" id="correo">
 			</div>
 			<div class="form-group mb-3">
 				<label for="especie">Número telefónico:</label>
-				<input type="tel" class="form-control" placeholder="Teléfono del veterinario" id="telefono">
+				<input type="tel" class="form-control" id="telefono">
 			</div>
 			<div class="form-group mb-3">
 				<label for="especie">Dirección del veterinario:</label>
-				<input type="text" class="form-control" placeholder="Dirección del veterinario" id="direccion">
+				<input type="text" class="form-control" id="direccion">
 			</div>
 			<div class="form-group mb-3">
 				<label for="especie">Horario del veterinario:</label>
-				<input type="text" class="form-control" placeholder="Horario del veterinario" id="horario">
+				<input type="text" class="form-control" id="horario">
 			</div>
 			<button onclick="veterinario.modificar($('#select').val(), $('#nombre').val(), $('#correo').val(), $('#telefono').val(), $('#direccion').val(), $('#horario').val())" class="btn btn-outline-primary">Modificar</button>
 			<button onclick="veterinario.eliminar($('#select').val())" class="btn btn-danger">Eliminar</button>

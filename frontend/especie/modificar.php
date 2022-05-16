@@ -33,7 +33,7 @@ if(!session_exists()){
 		<form action="#" id="formulario" method="POST" onsubmit="event.preventDefault();">
 			<div class="form-group mb-3">
 				<label for="nombre">Nombre de la especie:</label>
-				<input type="text" class="form-control" placeholder="Ingresa la especie" id="nombre">
+				<input type="text" class="form-control" id="nombre">
 			</div>
 			<button onclick="especie.modificar($('#select').val(), $('#nombre').val())" class="btn btn-outline-primary">Modificar</button>
 			<button onclick="especie.eliminar($('#select').val())" class="btn btn-danger">Eliminar</button>

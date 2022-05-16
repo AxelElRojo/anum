@@ -31,23 +31,23 @@ if(!session_exists()){
 		<form action="#" id="formulario" method="POST" onsubmit="event.preventDefault(); empleado.alta($('#usuario').val(), $('#nombre').val(), $('#contraseña').val(), $('#correo').val(), $('#area').val(), $('#esAdmin').attr('checked'))">
 			<div class="form-group mb-3">
 				<label for="usuario">Nombre de usuario:</label>
-				<input type="text" class="form-control" placeholder="Ingresa el nombre de usuario" id="usuario">
+				<input type="text" class="form-control" id="usuario">
 			</div>
 			<div class="form-group mb-3">
 				<label for="nombre">Nombre del empleado:</label>
-				<input type="text" class="form-control" placeholder="Ingresa el nombre" id="nombre">
+				<input type="text" class="form-control" id="nombre">
 			</div>
 			<div class="form-group mb-3">
 				<label for="contraseña">Constraseña:</label>
-				<input type="password" class="form-control" placeholder="Ingresa la contraseña" id="contraseña">
+				<input type="password" class="form-control" id="contraseña">
 			</div>
 			<div class="form-group mb-3">
 				<label for="correo">Correo:</label>
-				<input type="email" class="form-control" placeholder="Ingresa el correo" id="correo">
+				<input type="email" class="form-control" id="correo">
 			</div>
 			<div class="form-group mb-3">
 				<label for="area">Area:</label>
-				<input type="text" class="form-control" placeholder="Ingresa el area" id="area">
+				<input type="text" class="form-control" id="area">
 			</div>
 			<div class="form-check">
 				<label class="form-check-label" for="esAdmin">

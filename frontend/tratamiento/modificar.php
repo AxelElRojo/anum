@@ -37,7 +37,7 @@ if(!session_exists()){
 		<form action="#" id="formulario" method="POST" onsubmit="event.preventDefault()">
 			<div class="form-group mb-3">
 				<label for="duracion">Duración:</label>
-				<input type="text" class="form-control" placeholder="duracion" id="duracion">
+				<input type="text" class="form-control" id="duracion">
 			</div>
 			<div class="form-group mb-3">
 				<label for="frecuencia">Frecuencia:</label>

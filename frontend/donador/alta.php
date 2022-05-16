@@ -30,11 +30,11 @@ if(!session_exists()){
 		<form action="#" id="formulario" method="POST" onsubmit="event.preventDefault(); donador.alta($('#nombre').val(), $('#rfc').val(), $('#correo').val())">
 			<div class="form-group mb-3">
 				<label for="nombre">Nombre del donador:</label>
-				<input type="text" class="form-control" placeholder="Ingresa el nombre del donador" id="nombre">
+				<input type="text" class="form-control" id="nombre">
 				<label for="rfc">RFC:</label>
-				<input type="text" class="form-control" placeholder="Ingresa el RFC del donador" id="rfc">
+				<input type="text" class="form-control" id="rfc">
 				<label for="especie">Correo del donador:</label>
-				<input type="email" class="form-control" placeholder="Ingresa el correo del donador" id="correo">
+				<input type="email" class="form-control" id="correo">
 			</div>
 			<button type="submit" class="btn btn-outline-primary">Registrar</button>
 		</form>
