@@ -19,7 +19,7 @@ if(!session_exists()){
 	<script type="text/javascript" src="../includes/js/animal.js"></script>
 	<script type="text/javascript" src="../includes/js/enfermedad.js"></script>
 	<script type="text/javascript">
-		animal.listar('idAnimal');
+		animal.listar({}, 'idAnimal', false);
 	</script>
 </head>
 <body>
