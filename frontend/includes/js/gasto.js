@@ -12,7 +12,6 @@ gasto.alta = (concepto, fecha, cantidad, callback = null, args = {}) => {
 			},
 			method: "POST",
 			success : (response) => {
-				console.log(response);
 				if(callback){
 					args.idGasto = response.id;
 					callback(args);

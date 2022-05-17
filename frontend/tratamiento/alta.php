@@ -22,7 +22,7 @@ if(!session_exists()){
 	<script type="text/javascript">
 		animal.listar({}, 'animal', false);
 		function wrapper(){
-			gasto.alta(`Tratamiento de ${$('#animal').val}`, $('#fecha').val(), $('#precio').val(), tratamiento.callback, {
+			gasto.alta(`${$('#descripcion').val()} de ${$('#animal option:selected').text()}`, $('#fecha').val(), $('#precio').val(), tratamiento.callback, {
 				duracion: $('#duracion').val(),
 				frecuencia: $('#frecuencia').val(),
 				descripcion: $('#descripcion').val(),

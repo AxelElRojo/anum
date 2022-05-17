@@ -40,7 +40,7 @@ tratamiento.callback = (args) => {
 			success : (response) => {
 				if(response.exito){
 					mostrarMensaje('Registro exitoso');
-					window.reload();
+					location.reload();
 				}
 			},
 			error : (request, status, error) => {
