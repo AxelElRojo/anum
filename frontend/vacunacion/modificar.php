@@ -48,7 +48,7 @@ if(!session_exists()){
 				<input type="date" class="form-control"id="fecha">
 			</div>
 			<button onclick="vacunacion.modificar($('#select').val(), $('#marca').val(), $('#tipo').val(), $('#fecha').val())" class="btn btn-outline-primary">Modificar</button>
-			<button onclick="vacunacion.eliminar(idAnimal)" class="btn btn-danger">Eliminar</button>
+			<button onclick="vacunacion.eliminar($('#select').val())" class="btn btn-danger">Eliminar</button>
 		</form>
 	</div>
 	<script type="text/javascript">
