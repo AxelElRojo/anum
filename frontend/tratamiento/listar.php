@@ -39,6 +39,7 @@ if(!session_exists()){
 			</tr>
 		</table>
 	<script>
+		animal.listar({}, 'idAnimal', false);
 		const tablaOriginal = $("#tabla").clone();
 	</script>
 </body>
